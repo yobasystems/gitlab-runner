@@ -2,7 +2,7 @@
 
 This is the Docker image for the Gitlab runner, running on Alpine Linux.
 
-[![Docker Layers](https://img.shields.io/badge/docker%20layers-4-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-40%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/)
+[![Docker Layers](https://img.shields.io/badge/docker%20layers-5-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-50%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/)
 
 [![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.6.2-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Nginx Version](https://img.shields.io/badge/gitlabrunner%20version-v9.2.0-green.svg?maxAge=2592000?style=flat-square)](http://nginx.org/en/)
 
@@ -22,7 +22,7 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 ## Features
 
   * Minimal size only
-    * 40 MB and only 4 layers
+    * 50 MB and only 5 layers
   * Memory usage is minimal on a simple install
 
 ## Architectures
