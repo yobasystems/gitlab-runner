@@ -9,7 +9,7 @@ amd64 gitlab runner build:
     - amd64
   script:
     - apk add --update git
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
     - cd alpine-amd64/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:amd64 .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:master
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
@@ -22,7 +22,7 @@ arm32v7 gitlab runner build:
     - armhf
   script:
     - apk add --update git
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $DOCKER_REGISTRY
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $DOCKER_REGISTRY
     - cd alpine-armhf/ && docker build -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7 -t $DOCKER_REGISTRY_DOCKERHUB_REPO:arm32v7 -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:arm32v7 -t $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf -t $DOCKER_REGISTRY_DOCKERHUB_REPO:armhf -t $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf .
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:arm32v7
     - docker push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:armhf
