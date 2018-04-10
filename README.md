@@ -4,14 +4,14 @@ This is the Docker image for the Gitlab runner, running on Alpine Linux.
 
 [![Docker Layers](https://img.shields.io/badge/docker%20layers-5-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-50%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.6.2-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v10.0.1-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-ci-multi-runner)
+[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.7.0-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v10.6.0-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-ci-multi-runner)
 
 
 
 This Docker image [(yobasystems/gitlab-ci-multi-runner)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-ci-multi-runner) pre-installed.
 
-##### Alpine Version 3.6.2 (Released Jun 17, 2017)
-##### Gitlab Runner Version 10.0.1
+##### Alpine Version 3.7.0 (Released Jun 17, 2017)
+##### Gitlab Runner Version 10.6.0
 
 ----
 

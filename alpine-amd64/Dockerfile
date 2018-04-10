@@ -1,5 +1,5 @@
 FROM yobasystems/alpine:amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="10.0.1"
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="10.6.0"
 
 RUN apk add --update \
 		bash \
@@ -8,7 +8,7 @@ RUN apk add --update \
 		openssl \
 		wget
 
-RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/binaries/gitlab-runner-linux-amd64 && \
+RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v10.6.0/binaries/gitlab-runner-linux-amd64 && \
 	chmod +x /usr/bin/gitlab-ci-multi-runner && \
 	ln -s /usr/bin/gitlab-ci-multi-runner /usr/bin/gitlab-runner && \
 	wget -q https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-Linux-x86_64 -O /usr/bin/docker-machine && \
