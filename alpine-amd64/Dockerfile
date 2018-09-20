@@ -1,5 +1,5 @@
-FROM yobasystems/alpine:3.8-amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="11.1.0"
+FROM yobasystems/alpine:3.8.1-amd64
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="11.2.0" alpineversion="3.8.1" build="20-sep-2018"
 
 RUN apk add --update \
 		bash \
@@ -8,7 +8,7 @@ RUN apk add --update \
 		openssl \
 		wget
 
-RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.1.0/binaries/gitlab-runner-linux-amd64 && \
+RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.2.0/binaries/gitlab-runner-linux-amd64 && \
 	chmod +x /usr/bin/gitlab-ci-multi-runner && \
 	ln -s /usr/bin/gitlab-ci-multi-runner /usr/bin/gitlab-runner && \
 	wget -q https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-Linux-x86_64 -O /usr/bin/docker-machine && \
