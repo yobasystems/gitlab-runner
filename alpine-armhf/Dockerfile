@@ -11,7 +11,7 @@ RUN apk add --update \
 RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.4.2/binaries/gitlab-runner-linux-arm && \
 	chmod +x /usr/bin/gitlab-ci-multi-runner && \
 	ln -s /usr/bin/gitlab-ci-multi-runner /usr/bin/gitlab-runner && \
-	wget -q https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-Linux-armhf -O /usr/bin/docker-machine && \
+	wget -q https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-armhf -O /usr/bin/docker-machine && \
 	chmod +x /usr/bin/docker-machine && \
 	mkdir -p /etc/gitlab-runner/certs && \
 	chmod -R 700 /etc/gitlab-runner
