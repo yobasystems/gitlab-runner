@@ -1,5 +1,5 @@
-FROM yobasystems/alpine:3.8.1-amd64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="AMD64/x86_64" version="11.5.0" alpineversion="3.8.1" build="23-nov-2018"
+FROM yobasystems/alpine:3.8.1-aarch64
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM64v8/aarch64" version="11.5.0" alpineversion="3.8.1" build="23-nov-2018"
 
 RUN apk add --update \
 		bash \
@@ -8,10 +8,10 @@ RUN apk add --update \
 		openssl \
 		wget
 
-RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.5.0/binaries/gitlab-runner-linux-amd64 && \
+RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.5.0/binaries/gitlab-runner-linux-arm && \
 	chmod +x /usr/bin/gitlab-ci-multi-runner && \
 	ln -s /usr/bin/gitlab-ci-multi-runner /usr/bin/gitlab-runner && \
-	wget -q https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-x86_64 -O /usr/bin/docker-machine && \
+	wget -q https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-armhf -O /usr/bin/docker-machine && \
 	chmod +x /usr/bin/docker-machine && \
 	mkdir -p /etc/gitlab-runner/certs && \
 	chmod -R 700 /etc/gitlab-runner
