@@ -1,5 +1,5 @@
-FROM yobasystems/alpine:3.8.1-armhf
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="11.5.0" alpineversion="3.8.1" build="23-nov-2018"
+FROM yobasystems/alpine:3.9.0-armhf
+LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM32v7/armhf" version="11.7.0" alpineversion="3.9.0" build="11-Feb-2018"
 
 RUN apk add --update \
 		bash \
@@ -8,7 +8,7 @@ RUN apk add --update \
 		openssl \
 		wget
 
-RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.5.0/binaries/gitlab-runner-linux-arm && \
+RUN wget -O /usr/bin/gitlab-ci-multi-runner https://gitlab-runner-downloads.s3.amazonaws.com/v11.7.0/binaries/gitlab-runner-linux-arm && \
 	chmod +x /usr/bin/gitlab-ci-multi-runner && \
 	ln -s /usr/bin/gitlab-ci-multi-runner /usr/bin/gitlab-runner && \
 	wget -q https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-armhf -O /usr/bin/docker-machine && \
