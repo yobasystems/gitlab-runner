@@ -4,14 +4,14 @@ This is the Docker image for the Gitlab runner, running on Alpine Linux.
 
 [![Docker Layers](https://img.shields.io/badge/docker%20layers-5-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-50%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.9.0-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v11.7.0-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-ci-multi-runner)
+[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.9.0-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v11.8.0-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-ci-multi-runner)
 
 
 
-This Docker image [(yobasystems/gitlab-ci-multi-runner)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-ci-multi-runner) pre-installed.
+This Docker image [(yobasystems/gitlab-ci-multi-runner)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
 ##### Alpine Version 3.9.0 (Released January 29, 2019)
-##### Gitlab Runner Version 11.7.0
+##### Gitlab Runner Version 11.8.0
 
 ----
 
@@ -31,7 +31,6 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 ## Architectures
 
   * ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
-  * ```:i386```, ```:x86``` - 32 bit Intel/AMD (x86/i686)
   * ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
   * ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
 
