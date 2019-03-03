@@ -2,13 +2,13 @@
 
 This is the Docker image for the Gitlab runner, running on Alpine Linux.
 
-[![Docker Layers](https://img.shields.io/badge/docker%20layers-5-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-50%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-ci-multi-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/)
+[![Docker Layers](https://img.shields.io/badge/docker%20layers-5-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-50%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.9.0-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v11.8.0-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-ci-multi-runner)
+[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.9.0-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v11.8.0-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-runner)
 
 
 
-This Docker image [(yobasystems/gitlab-ci-multi-runner)](https://hub.docker.com/r/yobasystems/gitlab-ci-multi-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
+This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
 ##### Alpine Version 3.9.0 (Released January 29, 2019)
 ##### Gitlab Runner Version 11.8.0
@@ -53,7 +53,7 @@ version: '2'
 services:
   gitlab-runner:
     privileged: true
-    image: yobasystems/gitlab-ci-multi-runner:amd64
+    image: yobasystems/gitlab-runner:amd64
     stdin_open: true
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
@@ -65,7 +65,7 @@ services:
 then register with gitlab server by running the following command:
 
 ```
-sudo gitlab-ci-multi-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "docker:git" --docker-privileged
+sudo gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "docker:git" --docker-privileged
 
 ```
 
@@ -74,9 +74,9 @@ sudo gitlab-ci-multi-runner register -n --url https://gitlab.url.domain.co.uk/ci
 
 ## Source Repository
 
-* [Bitbucket - yobasystems/gitlab-ci-multi-runner](https://bitbucket.org/yobasystems/gitlab-ci-multi-runner/)
+* [Bitbucket - yobasystems/gitlab-runner](https://bitbucket.org/yobasystems/gitlab-runner/)
 
-* [Github - yobasystems/gitlab-ci-multi-runner](https://github.com/yobasystems/gitlab-ci-multi-runner)
+* [Github - yobasystems/gitlab-runner](https://github.com/yobasystems/gitlab-runner)
 
 ## Links
 
