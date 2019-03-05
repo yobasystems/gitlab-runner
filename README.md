@@ -48,6 +48,17 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 * ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
 
 ## How to use this image
+
+#### aarch64
+
+```
+docker pull yobasystems/gitlab-runner:aarch64
+docker pull yobasystems/gitlab-runner:aarch64-helper-11-2
+docker tag yobasystems/gitlab-runner:aarch64-helper-11-2 gitlab-runner-helper:11.2.0
+
+sudo docker run -d --name=gitlab-runner --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /data/gitlab-runner/config:/etc/gitlab-runner -v /data/gitlab-builds:/gitlab-builds yobasystems/gitlab-runner:aarch64
+```
+
 #### Usage
 
 Use like you would any other base image:
@@ -69,7 +80,7 @@ services:
 then register with gitlab server by running the following command:
 
 ```
-sudo gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "docker:git" --docker-privileged
+sudo gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker" --docker-privileged
 
 ```
 
