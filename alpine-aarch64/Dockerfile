@@ -1,5 +1,22 @@
 FROM yobasystems/alpine:3.9.0-aarch64
-LABEL maintainer "Dominic Taylor <dominic@yobasystems.co.uk>" architecture="ARM64v8/aarch64" version="11.8.0" alpineversion="3.9.0" build="27-Feb-2019"
+
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
+    architecture="arm64v8/aarch64" \
+    alpine-version="3.9.0" \
+    gitlab-runner-version="11.8.0" \
+    build="05-Mar-2019" \
+    org.opencontainers.image.title="gitlab-runner" \
+    org.opencontainers.image.description="Gitlab Runner image running on Alpine Linux" \
+    org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
+    org.opencontainers.image.vendor="Yoba Systems" \
+    org.opencontainers.image.version="v11.8.0" \
+    org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/gitlab-runner/" \
+    org.opencontainers.image.source="https://github.com/yobasystems/gitlab-runner" \
+    org.opencontainers.image.revision=$VCS_REF \
+    org.opencontainers.image.created=$BUILD_DATE
 
 RUN apk add --update \
 		bash \

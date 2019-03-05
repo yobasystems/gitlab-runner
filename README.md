@@ -2,10 +2,12 @@
 
 This is the Docker image for the Gitlab runner, running on Alpine Linux.
 
-[![Docker Layers](https://img.shields.io/badge/docker%20layers-5-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/) [![Docker Size](https://img.shields.io/badge/docker%20size-50%20MB-blue.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/) [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/) [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-runner.svg?maxAge=2592000?style=flat-square)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
+[![Docker Automated build](https://img.shields.io/docker/automated/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
+[![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/alpine%20version-v3.9.0-green.svg?maxAge=2592000?style=flat-square)](http://alpinelinux.org/) [![Gitlab Runner Version](https://img.shields.io/badge/gitlabrunner%20version-v11.8.0-green.svg?maxAge=2592000?style=flat-square)](https://packages.gitlab.com/runner/gitlab-runner)
-
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.9.0-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v11.8.0-green.svg?style=for-the-badge)](https://www.docker.com/)
 
 
 This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
@@ -24,24 +26,26 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 
 ## Features
 
-  * Minimal size only
-    * 50 MB and only 5 layers
-  * Memory usage is minimal on a simple install
+* Minimal size only
+* 50 MB and only 5 layers
+* Memory usage is minimal on a simple install
 
 ## Architectures
 
-  * ```:amd64```, ```:latest``` - 64 bit Intel/AMD (x86_64/amd64)
-  * ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
-  * ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
+* ```:amd64```, ```:x86_64``` - 64 bit Intel/AMD (x86_64/amd64)
+* ```:arm64v8```, ```:aarch64``` - 64 bit ARM (ARMv8/aarch64)
+* ```:arm32v7```, ```:armhf``` - 32 bit ARM (ARMv7/armhf)
 
 #### PLEASE CHECK TAGS BELOW FOR SUPPORTED ARCHITECTURES, THE ABOVE IS A LIST OF EXPLANATION
 
 ## Tags
 
-  * ```:latest```, ```:amd64``` latest branch based on amd64
-  * ```:master``` master branch usually inline with latest
-  * ```:v0.0.0``` version number related to gitlab runner version
-  * ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
+* ```:latest``` latest branch based (Automatic Architecture Selection)
+* ```:master``` master branch usually inline with latest
+* ```:v0.0.0``` version number related to gitlab runner version (Automatic Architecture Selection)
+* ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
+* ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
+* ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
 
 ## How to use this image
 #### Usage
@@ -53,7 +57,7 @@ version: '2'
 services:
   gitlab-runner:
     privileged: true
-    image: yobasystems/gitlab-runner:amd64
+    image: yobasystems/gitlab-runner
     stdin_open: true
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
