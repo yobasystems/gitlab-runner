@@ -1,11 +1,11 @@
-FROM yobasystems/alpine:3.9.0-aarch64
+FROM yobasystems/alpine:3.9.2-aarch64
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     architecture="arm64v8/aarch64" \
-    alpine-version="3.9.0" \
+    alpine-version="3.9.2" \
     gitlab-runner-version="11.8.0" \
     build="05-Mar-2019" \
     org.opencontainers.image.title="gitlab-runner" \
