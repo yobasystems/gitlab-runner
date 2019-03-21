@@ -10,9 +10,9 @@ This is the Docker image for the Gitlab runner, running on Alpine Linux.
 [![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v11.8.0-green.svg?style=for-the-badge)](https://www.docker.com/)
 
 
-This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](http://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
+This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
-##### Alpine Version 3.9.2 (Released January 29, 2019)
+##### Alpine Version 3.9.2 (Released March 04, 2019)
 ##### Gitlab Runner Version 11.8.0
 
 ----

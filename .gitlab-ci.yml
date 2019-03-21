@@ -25,7 +25,7 @@ amd64 gitlab runner build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:amd64
 
 arm32v7 gitlab runner build:
-  stage: yobasystems/alpine-docker:armhf-dind
+  stage: yobasystems/alpine-docker:dind
   stage: build
   tags:
     - armhf
@@ -46,7 +46,7 @@ arm32v7 gitlab runner build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:armhf
 
 gitlab manifest creation:
-  image: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:dind
   stage: manifest
   tags:
     - amd64
@@ -62,7 +62,7 @@ gitlab manifest creation:
     - docker manifest push $DOCKER_REGISTRY/$DOCKER_REGISTRY_REPO:latest
 
 dockerhub manifest creation:
-  image: yobasystems/alpine-docker:amd64-dind
+  image: yobasystems/alpine-docker:dind
   stage: manifest
   tags:
     - amd64
