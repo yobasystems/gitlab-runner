@@ -5,7 +5,7 @@ stages:
   - deploy
 
 amd64 gitlab runner build:
-  stage: yobasystems/alpine-docker:dind
+  image: yobasystems/alpine-docker:dind
   stage: build
   tags:
     - amd64
@@ -25,7 +25,7 @@ amd64 gitlab runner build:
     - echo "$QUAY_PASSWORD" | docker login -u "$QUAY_USERNAME" quay.io --password-stdin && docker push $DOCKER_REGISTRY_QUAY/$DOCKER_REGISTRY_QUAY_REPO:amd64
 
 arm32v7 gitlab runner build:
-  stage: yobasystems/alpine-docker:dind
+  image: yobasystems/alpine-docker:dind
   stage: build
   tags:
     - armhf
