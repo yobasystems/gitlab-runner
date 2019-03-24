@@ -7,13 +7,13 @@ This is the Docker image for the Gitlab runner, running on Alpine Linux.
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 
 [![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.9.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
-[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v11.8.0-green.svg?style=for-the-badge)](https://www.docker.com/)
+[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v11.9.0-green.svg?style=for-the-badge)](https://www.docker.com/)
 
 
 This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
 ##### Alpine Version 3.9.2 (Released March 04, 2019)
-##### Gitlab Runner Version 11.8.0
+##### Gitlab Runner Version 11.9.0
 
 ----
 
@@ -49,17 +49,65 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 
 ## How to use this image
 
-#### aarch64
+### amd64/armhf (Alpine)
 
+```
+docker pull yobasystems/gitlab-runner
+
+sudo docker run -d --name=gitlab-runner --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /data/gitlab-runner/config:/etc/gitlab-runner yobasystems/gitlab-runner
+```
+
+#### Register runner with gitlab server
+These can be passed at runtime as environment variables or by running the following command:
+
+```
+docker exec -it gitlab-runner /bin/sh
+
+gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker" --docker-privileged
+```
+
+### aarch64 (Ubuntu based on gitlab runner 11.2)
 ```
 docker pull yobasystems/gitlab-runner:aarch64
 docker pull yobasystems/gitlab-runner:aarch64-helper-11-2
 docker tag yobasystems/gitlab-runner:aarch64-helper-11-2 gitlab-runner-helper:11.2.0
 
-sudo docker run -d --name=gitlab-runner --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /data/gitlab-runner/config:/etc/gitlab-runner -v /data/gitlab-builds:/gitlab-builds yobasystems/gitlab-runner:aarch64
+sudo docker run -d --name=gitlab-runner --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /data/gitlab-runner/config:/etc/gitlab-runner yobasystems/gitlab-runner:aarch64
 ```
 
-#### Usage
+#### Register runner with gitlab server
+These can be passed at runtime as environment variables or by running the following command:
+
+```
+docker exec -it gitlab-runner /bin/bash
+
+sudo gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker:aarch64" --docker-privileged
+```
+
+### Config file
+
+Sometimes it is needed to add the following `"/var/run/docker.sock:/var/run/docker.sock"`, in the example below you will see the placement.
+
+```
+concurrent = 1
+check_interval = 0
+[[runners]]
+  name = "gitlab-runner001"
+  url = "https://gitlab.url.domain.co.uk/ci"
+  token = "eRp938AHcv8JiHi4hUip"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "yobasystems/alpine-docker:dind"
+    privileged = true
+    disable_cache = true
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    shm_size = 0
+  [runners.cache]
+```
+
+
+### Usage
 
 Use like you would any other base image:
 
@@ -73,15 +121,7 @@ services:
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /data/gitlab-runner/config:/etc/gitlab-runner
-    - /data/gitlab-runner/builds:/home/gitlab-runner
     tty: true
-```
-
-then register with gitlab server by running the following command:
-
-```
-sudo gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker" --docker-privileged
-
 ```
 
 ## Image contents & Vulnerability analysis
