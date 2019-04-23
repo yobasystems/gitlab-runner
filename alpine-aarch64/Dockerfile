@@ -6,25 +6,28 @@ ARG VCS_REF
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     architecture="arm64v8/aarch64" \
     alpine-version="3.9.2" \
-    gitlab-runner-version="11.9.0" \
-    build="24-Mar-2019" \
+    gitlab-runner-version="11.10.0" \
+    build="23-Apr-2019" \
     org.opencontainers.image.title="gitlab-runner" \
     org.opencontainers.image.description="Gitlab Runner image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="v11.9.0" \
+    org.opencontainers.image.version="v11.10.0" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/gitlab-runner/" \
     org.opencontainers.image.source="https://github.com/yobasystems/gitlab-runner" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV GITLAB_RUNNER_VERSION=11.9.0 DOCKER_MACHINE_VERSION=0.16.1
+ENV GITLAB_RUNNER_VERSION=11.10.0 DOCKER_MACHINE_VERSION=0.16.1
 
 RUN apk add --no-cache \
 		bash \
 		ca-certificates \
+    dumb-init \
 		git \
+    git-lfs \
 		openssl \
+    tzdata \
 		wget
 
 RUN wget -O /usr/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/v${GITLAB_RUNNER_VERSION}/binaries/gitlab-runner-linux-arm64 && \
@@ -39,5 +42,5 @@ ADD files/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 VOLUME ["/etc/gitlab-runner", "/home/gitlab-runner"]
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "/entrypoint.sh"]
 CMD ["run", "--user=gitlab-runner", "--working-directory=/home/gitlab-runner"]
