@@ -63,7 +63,7 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 
 ## How to use this image
 
-### amd64/armhf (Alpine)
+### amd64/armhf/aarch64 (Alpine)
 
 ```
 docker pull yobasystems/gitlab-runner
@@ -78,24 +78,6 @@ These can be passed at runtime as environment variables or by running the follow
 docker exec -it gitlab-runner /bin/sh
 
 gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker" --docker-privileged
-```
-
-### aarch64 (Ubuntu based on gitlab runner 11.2)
-```
-docker pull yobasystems/gitlab-runner:aarch64
-docker pull yobasystems/gitlab-runner:aarch64-helper-11-2
-docker tag yobasystems/gitlab-runner:aarch64-helper-11-2 gitlab-runner-helper:11.2.0
-
-sudo docker run -d --name=gitlab-runner --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /data/gitlab-runner/config:/etc/gitlab-runner yobasystems/gitlab-runner:aarch64
-```
-
-#### Register runner with gitlab server
-These can be passed at runtime as environment variables or by running the following command:
-
-```
-docker exec -it gitlab-runner /bin/bash
-
-sudo gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker:aarch64" --docker-privileged
 ```
 
 ### Config file
