@@ -6,14 +6,14 @@ This is the Docker image for the Gitlab runner, running on Alpine Linux.
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.11.6-green.svg?style=for-the-badge)](https://alpinelinux.org/)
-[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v12.10.2-green.svg?style=for-the-badge)](https://www.docker.com/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.12.0-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v13.2.4-green.svg?style=for-the-badge)](https://www.docker.com/)
 
 
 This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
-##### Alpine Version 3.11.6 (Released April 23, 2020)
-##### Gitlab Runner Version 12.10.2
+##### Alpine Version 3.12.0 (Released April 23, 2020)
+##### Gitlab Runner Version 13.2.4
 
 ----
 
@@ -42,7 +42,7 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 
 * ```:latest``` latest branch based (Automatic Architecture Selection)
 * ```:master``` master branch usually inline with latest
-* ```:12.10.2```, ```:12.10.2-arch``` version tag (Automatic Architecture Selection)
+* ```:13.2.4```, ```:13.2.4-arch``` version tag (Automatic Architecture Selection)
 * ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
 * ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
 * ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
@@ -77,7 +77,7 @@ These can be passed at runtime as environment variables or by running the follow
 ```
 docker exec -it gitlab-runner /bin/sh
 
-gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/alpine-docker" --docker-privileged
+gitlab-runner register -n --url https://gitlab.url.domain.co.uk/ci --registration-token eRp938AHcv8JiHi4hUip --executor docker --docker-image "yobasystems/gitlab-runner-docker" --docker-privileged
 ```
 
 ### Config file
@@ -94,7 +94,7 @@ check_interval = 0
   executor = "docker"
   [runners.docker]
     tls_verify = false
-    image = "yobasystems/alpine-docker:dind"
+    image = "yobasystems/gitlab-runner-docker:dind"
     privileged = true
     disable_cache = true
     volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
@@ -123,26 +123,40 @@ services:
 ## Image contents & Vulnerability analysis
 
 
-## Source Repository
+## Source Repositories
+
+* [Github - yobasystems/gitlab-runner](https://github.com/yobasystems/gitlab-runner)
+
+* [Gitlab - yobasystems/gitlab-runner](https://gitlab.com/yobasystems/gitlab-runner)
 
 * [Bitbucket - yobasystems/gitlab-runner](https://bitbucket.org/yobasystems/gitlab-runner/)
 
-* [Github - yobasystems/gitlab-runner](https://github.com/yobasystems/gitlab-runner)
+
+## Container Registries
+
+* [Dockerhub - yobasystems/gitlab-runner](https://hub.docker.com/r/yobasystems/gitlab-runner/)
+
+* [Quay.io - yobasystems/gitlab-runner](https://quay.io/repository/yobasystems/gitlab-runner)
+
 
 ## Links
 
 * [Yoba Systems](https://www.yobasystems.co.uk/)
 
-* [Dockerhub - yobasystems](https://hub.docker.com/u/yobasystems/)
+* [Github - Yoba Systems](https://github.com/yobasystems/)
 
-* [Quay.io - yobasystems](https://quay.io/organization/yobasystems)
+* [Dockerhub - Yoba Systems](https://hub.docker.com/u/yobasystems/)
+
+* [Quay.io - Yoba Systems](https://quay.io/organization/yobasystems)
+
+* [Maintainer - Dominic Taylor](https://github.com/dominictayloruk)
 
 ## Donation
 
-```
-BITCOIN: bc1ql0heex0jxh0yj5cucc83a3x6c6rxuq6x9zk07g
-ETHEREUM: 0x6b707391c60d50E4E414a143446C0b8eF9A2d1c4
-STELLAR: GAREZZW36KF2IT2EJW6LG5HH4XT3QIMWCHMCGEBC6V3AP3EFJCORRZIY
-XRP: rsaEp3bh3LrjVHqrcyLgbUb6QUQbBogzR3
-ZCASH: t1MuAY2vR17vDK3BgCAtf8ZdXsCiBw3zkU6
-```
+[![BMAC](https://img.shields.io/badge/BUY%20ME%20A%20COFFEE-£5-blue.svg?style=for-the-badge&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/dominictayloruk?new=1)
+
+[![BITCOIN](https://img.shields.io/badge/BTC-bc1ql0heex0jxh0yj5cucc83a3x6c6rxuq6x9zk07g-blue.svg?style=for-the-badge&logo=bitcoin)](bitcoin:bc1ql0heex0jxh0yj5cucc83a3x6c6rxuq6x9zk07g)
+
+[![ETHEREUM](https://img.shields.io/badge/ETH-0x6b707391c60d50E4E414a143446C0b8eF9A2d1c4-blue.svg?style=for-the-badge&logo=ethereum)](https://etherscan.io/address/dominictaylor.eth)
+
+[![STELLAR](https://img.shields.io/badge/XLM-GAREZZW36KF2IT2EJW6LG5HH4XT3QIMWCHMCGEBC6V3AP3EFJCORRZIY-blue.svg?style=for-the-badge&logo=stellar)](https://keybase.io/dominictayloruk)
