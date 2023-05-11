@@ -14,6 +14,7 @@ This Docker image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasys
 
 ### Alpine Version 3.18.0 (Released 2023-05-09)
 ##### Gitlab Runner Version 15.11.0
+##### Docker Machine Version 0.16.2-gitlab.21
 
 ----
 

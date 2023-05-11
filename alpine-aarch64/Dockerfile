@@ -18,7 +18,7 @@ LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV GITLAB_RUNNER_VERSION=15.11.0 DOCKER_MACHINE_VERSION=0.16.2
+ENV GITLAB_RUNNER_VERSION=15.11.0 DOCKER_MACHINE_VERSION=0.16.2-gitlab.21
 
 RUN apk add --no-cache \
 		bash \
@@ -33,7 +33,7 @@ RUN apk add --no-cache \
 RUN wget -O /usr/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/v${GITLAB_RUNNER_VERSION}/binaries/gitlab-runner-linux-arm64 && \
 	chmod +x /usr/bin/gitlab-runner && \
 	ln -s /usr/bin/gitlab-runner /usr/bin/gitlab-ci-multi-runner && \
-	wget -q https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-Linux-aarch64 -O /usr/bin/docker-machine && \
+	wget -q https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/releases/v${DOCKER_MACHINE_VERSION}/downloads/docker-machine-Linux-aarch64 -O /usr/bin/docker-machine && \
 	chmod +x /usr/bin/docker-machine && \
 	mkdir -p /etc/gitlab-runner/certs && \
 	chmod -R 700 /etc/gitlab-runner
