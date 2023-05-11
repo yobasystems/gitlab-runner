@@ -6,19 +6,19 @@ ARG VCS_REF
 LABEL maintainer="Dominic Taylor <dominic@yobasystems.co.uk>" \
     architecture="arm32v7/armhf" \
     alpine-version="3.18.0" \
-    gitlab-runner-version="5.11.0" \
+    gitlab-runner-version="15.11.0" \
     build="11-May-2023" \
     org.opencontainers.image.title="gitlab-runner" \
     org.opencontainers.image.description="Gitlab Runner image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yobasystems.co.uk>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="v5.11.0" \
+    org.opencontainers.image.version="v15.11.0" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/gitlab-runner/" \
     org.opencontainers.image.source="https://github.com/yobasystems/gitlab-runner" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV GITLAB_RUNNER_VERSION=5.11.0 DOCKER_MACHINE_VERSION=0.16.2
+ENV GITLAB_RUNNER_VERSION=15.11.0 DOCKER_MACHINE_VERSION=0.16.2
 
 RUN apk add --no-cache \
 		bash \
