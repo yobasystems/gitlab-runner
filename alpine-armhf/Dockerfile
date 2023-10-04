@@ -1,13 +1,13 @@
-FROM yobasystems/alpine:3.18.3-armhf
+FROM yobasystems/alpine:3.18.4-armhf
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     architecture="arm32v7/armhf" \
-    alpine-version="3.18.3" \
+    alpine-version="3.18.4" \
     gitlab-runner-version="16.4.0" \
-    build="22-Sep-2023" \
+    build="04-Oct-2023" \
     org.opencontainers.image.title="gitlab-runner" \
     org.opencontainers.image.description="Gitlab Runner image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yoba.systems>" \
