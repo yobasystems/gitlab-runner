@@ -1,25 +1,25 @@
-FROM yobasystems/alpine:3.19.1-amd64
+FROM yobasystems/alpine:3.20.2-amd64
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
     architecture="amd64/x86_64" \
-    alpine-version="3.19.1" \
-    gitlab-runner-version="16.10.0" \
-    build="13-Apr-2024" \
+    alpine-version="3.20.2" \
+    gitlab-runner-version="17.3.0" \
+    build="19-Aug-2024" \
     org.opencontainers.image.title="gitlab-runner" \
     org.opencontainers.image.description="Gitlab Runner image running on Alpine Linux" \
     org.opencontainers.image.authors="Dominic Taylor <dominic@yoba.systems>" \
     org.opencontainers.image.vendor="Yoba Systems" \
-    org.opencontainers.image.version="16.10.0" \
+    org.opencontainers.image.version="17.3.0" \
     org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/gitlab-runner/" \
     org.opencontainers.image.source="https://github.com/yobasystems/gitlab-runner" \
-    org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.19.1" \
+    org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.20.2" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 
-ENV GITLAB_RUNNER_VERSION=16.10.0 DOCKER_MACHINE_VERSION=0.16.2-gitlab.25
+ENV GITLAB_RUNNER_VERSION=17.3.0 DOCKER_MACHINE_VERSION=0.16.2-gitlab.28
 
 RUN apk add --no-cache \
 		bash \
