@@ -56,7 +56,7 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 ## 🏷️ Tags
 
 * ```:latest``` latest branch based (Automatic Architecture Selection)
-* ```:master``` master branch usually inline with latest
+* ```:main``` main branch usually inline with latest
 * ```:17.8.3```, ```:17.8.3-arch``` version tag (Automatic Architecture Selection)
 * ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
 * ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
