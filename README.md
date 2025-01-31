@@ -6,13 +6,13 @@ This is the Container image for the Gitlab runner, running on Alpine Linux.
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.21.1-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.21.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 [![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v17.8.3-green.svg?style=for-the-badge)](https://www.docker.com/)
 
 
 This Container image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
-### Alpine Version 3.21.1 (Released 2025-01-06)
+### Alpine Version 3.21.2 (Released 2025-01-06)
 ##### Gitlab Runner Version 17.8.3
 ##### Docker Machine Version 0.16.2-gitlab.31
 
