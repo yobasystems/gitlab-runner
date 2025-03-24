@@ -6,15 +6,15 @@ This is the Container image for the Gitlab runner, running on Alpine Linux.
 [![Docker Pulls](https://img.shields.io/docker/pulls/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 [![Docker Stars](https://img.shields.io/docker/stars/yobasystems/gitlab-runner.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/yobasystems/gitlab-runner/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.21.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
-[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v17.8.3-green.svg?style=for-the-badge)](https://www.docker.com/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.21.3-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Gitlab Runner Version](https://img.shields.io/badge/Gitlab%20Runner%20version-v17.10.0-green.svg?style=for-the-badge)](https://www.docker.com/)
 
 
 This Container image [(yobasystems/gitlab-runner)](https://hub.docker.com/r/yobasystems/gitlab-runner/) is based on the minimal [Alpine Linux](https://alpinelinux.org/) with [Gitlab Runner](https://packages.gitlab.com/runner/gitlab-runner) pre-installed.
 
-### Alpine Version 3.21.2 (Released 2025-01-06)
-##### Gitlab Runner Version 17.8.3
-##### Docker Machine Version 0.16.2-gitlab.31
+### Alpine Version 3.21.3 (Released 2025-02-13)
+##### Gitlab Runner Version 17.10.0
+##### Docker Machine Version 0.16.2-gitlab.34
 
 ----
 
@@ -57,7 +57,7 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 
 * ```:latest``` latest branch based (Automatic Architecture Selection)
 * ```:main``` main branch usually inline with latest
-* ```:17.8.3```, ```:17.8.3-arch``` version tag (Automatic Architecture Selection)
+* ```:17.10.0```, ```:17.10.0-arch``` version tag (Automatic Architecture Selection)
 * ```:amd64```, ```:x86_64``` amd64 based on latest tag but amd64 architecture
 * ```:aarch64```, ```:arm64v8``` Armv8 based on latest tag but arm64 architecture
 * ```:armhf```, ```:arm32v7``` Armv7 based on latest tag but arm architecture
