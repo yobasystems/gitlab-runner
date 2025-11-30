@@ -13,8 +13,38 @@ stages:
 
 include:
 - remote: https://gitlab.com/yobasystems/gitlab-ci-templates/raw/master/container_scanning_all_arch.yml
-- template: Security/Secret-Detection.gitlab-ci.yml
-- template: Security/SAST.gitlab-ci.yml
+- template: Jobs/Secret-Detection.gitlab-ci.yml
+- template: Jobs/SAST.gitlab-ci.yml
+
+container_scanning_amd64:
+  tags:
+    - amd64
+  variables:
+    CS_DOCKERFILE_PATH: "alpine-amd64/Dockerfile"
+
+container_scanning_armhf:
+  tags:
+    - aarch64 # Use aarch64 runner as there isnt an image for armhf
+  variables:
+    CS_DOCKERFILE_PATH: "alpine-armhf/Dockerfile"
+
+container_scanning_aarch64:
+  tags:
+    - aarch64
+  variables:
+    CS_DOCKERFILE_PATH: "alpine-aarch64/Dockerfile"
+
+sbom_amd64:
+  tags:
+    - amd64
+
+sbom_armhf:
+  tags:
+    - armhf
+
+sbom_aarch64:
+  tags:
+    - aarch64
 
 .build_template: &build_definition
   image: yobasystems/alpine-docker:dind
@@ -33,7 +63,7 @@ include:
     - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token "$CI_REGISTRY" --password-stdin
     - docker push ${CI_REGISTRY_IMAGE}/${CI_COMMIT_SHORT_SHA}:${ARCH}
 
-amd64 gitlab-runner build:
+amd64_gitlab_runner_build:
   <<: *build_definition
   tags:
     - amd64
@@ -41,7 +71,7 @@ amd64 gitlab-runner build:
     ARCH: amd64
     PLATFORM: amd64
 
-arm32v7 gitlab-runner build:
+arm32v7_gitlab_runner_build:
   <<: *build_definition
   tags:
     - armhf
@@ -49,7 +79,7 @@ arm32v7 gitlab-runner build:
     ARCH: armhf
     PLATFORM: arm/v7
 
-arm64v8 gitlab-runner build:
+arm64v8_gitlab_runner_build:
   <<: *build_definition
   tags:
     - aarch64
@@ -57,8 +87,6 @@ arm64v8 gitlab-runner build:
     ARCH: aarch64
     PLATFORM: arm64/v8
 
-sast:
-  stage: test
 .deploy_template: &deploy_definition
   image: yobasystems/alpine-docker:dind
   stage: deploy
@@ -107,7 +135,7 @@ sast:
         docker push ghcr.io/$DOCKER_REGISTRY_GHCR_REPO:${CI_COMMIT_TAG}-${ARCH2}
       fi
 
-amd64 gitlab-runner deploy:
+amd64_gitlab_runner_deploy:
   <<: *deploy_definition
   tags:
     - amd64
@@ -116,9 +144,10 @@ amd64 gitlab-runner deploy:
     ARCH2: x86_64
     PLATFORM: amd64
   needs:
-    - amd64 gitlab-runner build
+    - amd64_gitlab_runner_build
+    - container_scanning_amd64
 
-arm32v7 gitlab-runner deploy:
+arm32v7_gitlab_runner_deploy:
   <<: *deploy_definition
   tags:
     - armhf
@@ -127,9 +156,10 @@ arm32v7 gitlab-runner deploy:
     ARCH2: arm32v7
     PLATFORM: arm/v7
   needs:
-    - arm32v7 gitlab-runner build
+    - arm32v7_gitlab_runner_build
+    - container_scanning_armhf
 
-arm64v8 gitlab-runner deploy:
+arm64v8_gitlab_runner_deploy:
   <<: *deploy_definition
   tags:
     - aarch64
@@ -138,15 +168,16 @@ arm64v8 gitlab-runner deploy:
     ARCH2: arm64v8
     PLATFORM: arm64/v8
   needs:
-    - arm64v8 gitlab-runner build
+    - arm64v8_gitlab_runner_build
+    - container_scanning_aarch64
 
-manifest creation latest:
+manifest_creation_latest:
   image: yobasystems/alpine-docker:dind
   stage: manifest
   needs:
-    - amd64 gitlab-runner deploy
-    - arm32v7 gitlab-runner deploy
-    - arm64v8 gitlab-runner deploy
+    - amd64_gitlab_runner_deploy
+    - arm32v7_gitlab_runner_deploy
+    - arm64v8_gitlab_runner_deploy
   rules:
     - if: $CI_COMMIT_TAG
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
@@ -175,11 +206,11 @@ manifest creation latest:
         create_and_push_manifest $repo latest
       done
 
-manifest creation version:
+manifest_creation_version:
   image: yobasystems/alpine-docker:dind
   stage: manifest
   needs:
-    - manifest creation latest
+    - manifest_creation_latest
   rules:
     - if: $CI_COMMIT_TAG
   script:
