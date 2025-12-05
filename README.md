@@ -51,8 +51,6 @@ GitLab Runner is the open source project that is used to run your jobs and send 
 - `:arm64v8`, `:aarch64` - 64 bit ARM (ARMv8/aarch64)
 - `:arm32v7`, `:armhf` - 32 bit ARM (ARMv7/armhf)
 
-#### 📝 PLEASE CHECK TAGS BELOW FOR SUPPORTED ARCHITECTURES, THE ABOVE IS A LIST OF EXPLANATION
-
 ## 🏷️ Tags
 
 - `:latest` latest branch based (Automatic Architecture Selection)
@@ -120,7 +118,7 @@ check_interval = 0
 Use like you would any other base image:
 
 ```
-version: '2'
+version: '3'
 services:
   gitlab-runner:
     privileged: true
