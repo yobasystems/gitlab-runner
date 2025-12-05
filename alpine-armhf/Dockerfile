@@ -15,7 +15,7 @@ LABEL maintainer="Dominic Taylor <dominic@yoba.systems>" \
   org.opencontainers.image.version="18.6.3" \
   org.opencontainers.image.url="https://hub.docker.com/r/yobasystems/gitlab-runner/" \
   org.opencontainers.image.source="https://github.com/yobasystems/gitlab-runner" \
-  org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.22.1" \
+  org.opencontainers.image.base.name="docker.io/yobasystems/alpine:3.23.0" \
   org.opencontainers.image.revision=$VCS_REF \
   org.opencontainers.image.created=$BUILD_DATE
 
